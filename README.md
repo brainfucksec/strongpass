@@ -23,8 +23,8 @@ Generate 10 password of 21 characters lenght:
 ./strongpass.py -l 21 -n 10 
 
 Vv?hB;^TdzUp?)|Q,-KcS
-(;%.@UBlMJ$b3RV/<@[J,
-1zU@t(9)2lJTY>|1:=baz
+(;%.@UBfMJ$b3RV/<@[J,
+1zU@t(9)2kJTY>|1:=baz
 Nu/39=%[cJ+2nv5w:@>|M
 kqkcmN_!P]_/]P6j?$P6.
 bu.F\3yC?bAcG|7;4\Bt_
