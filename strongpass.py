@@ -79,7 +79,7 @@ def main():
 		for x in range(args.number):
 			# charset defined with variables 
 			# chars excluded --> l0Oo'`ìèéòçà°
-			letters = "abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
+			letters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
 			numbers = "123456789"
 			special = "|\!$%&/()=?^~[]+*@#<>,;.:-_"				
 			chars = letters + numbers + special
