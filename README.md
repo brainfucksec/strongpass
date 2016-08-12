@@ -36,6 +36,6 @@ $B()9<.sS$?J\gU<K/abs
 
 
 
-##### Docs
-Python 3 documentation about random module.
+#### Docs
+Python3 random module documentation.
 https://docs.python.org/3/library/random.html
