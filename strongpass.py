@@ -78,7 +78,7 @@ def main():
 	if args.lenght and args.number:
 		for x in range(args.number):
 			# charset defined with variables 
-			# chars excluded --> 1l0Oo'`ìèéòçà°
+			# chars excluded --> l0Oo'`ìèéòçà°
 			letters = "abcdefghijklmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
 			numbers = "123456789"
 			special = "|\!$%&/()=?^~[]+*@#<>,;.:-_"				
