@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # Program: strongpass.py
-# Version: 3.2.0 
+# Version: 3.2.1 
 # Description: Generate random passwords 
 # Dev: Brainfuck 
 
@@ -25,7 +25,7 @@ import string
 import random 
 
 # program version
-version = "3.2.0"
+version = "3.2.1"
 
 # banner
 def banner():
@@ -81,7 +81,7 @@ def main():
 			# chars excluded --> l0Oo'`ìèéòçà°
 			letters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
 			numbers = "123456789"
-			special = "|\!$%&/()=?^~[]+*@#<>,;.:-_"				
+			special = "|\!$%&/()=?^~[]{}+*@#<>,;.:-_"				
 			chars = letters + numbers + special
 			password = "".join((random.choice(chars)) for x in range(args.lenght))
 			print(password)	

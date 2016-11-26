@@ -1,4 +1,4 @@
-### Strongpass v3.2.0
+### Strongpass v3.2.1
 
 #### Generate random passwords 
 
@@ -21,17 +21,16 @@ Examples:
 Generate 10 password of 21 characters lenght:
 
 ./strongpass.py -l 21 -n 10 
-
-Vv?hB;^TdzUp?)|Q,-KcS
-(;%.@UBfMJ$b3RV/<@[J,
-1zU@t(9)2kJTY>|1:=baz
-Nu/39=%[cJ+2nv5w:@>|M
-kqkcmN_!P]_/]P6j?$P6.
-bu.F\3yC?bAcG|7;4\Bt_
-XZ&[a5n9:uID2:(Gj2?Qz
-a&:fj7$q-=W+*<Hg3mIs^
-HmcKzi@![a8EvI4a6ctX;
-$B()9<.sS$?J\gU<K/abs
+|@eqsutL|(B{9!S=?XeFm
+m=9i*&kif!&&tU@4iyLZ1
+yBf+Y8J(7|d5wL@_J1,@/
+W!ji#sx)hdQV{:9dPGXx]
+~$WTV|iI~2^}9h)z*4?Yz
+-,g<}.xKZ~~kbT@Dyusqw
+s}rAU_Z1MkSv4^*;cVk{%
+VY.mb&+ksCucN?AI(jqg%
+7ry2LUDL2svV]q.F_p?Sq
+t+rtQyXMHXTMX@}Fp,g.=
 ```
 
 
