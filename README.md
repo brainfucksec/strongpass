@@ -1,4 +1,4 @@
-### Strongpass v3.2.1
+### Strongpass v3.3.0
 
 #### Generate random passwords 
 
@@ -21,20 +21,20 @@ Examples:
 Generate 10 password of 21 characters lenght:
 
 ./strongpass.py -l 21 -n 10 
-|@eqsutL|(B{9!S=?XeFm
-m=9i*&kif!&&tU@4iyLZ1
-yBf+Y8J(7|d5wL@_J1,@/
-W!ji#sx)hdQV{:9dPGXx]
-~$WTV|iI~2^}9h)z*4?Yz
--,g<}.xKZ~~kbT@Dyusqw
-s}rAU_Z1MkSv4^*;cVk{%
-VY.mb&+ksCucN?AI(jqg%
-7ry2LUDL2svV]q.F_p?Sq
-t+rtQyXMHXTMX@}Fp,g.=
+5!MxMAK[vC8I6D{Btge.5
+<:_EPv>^83S6i6ICuGbn%
+mhmI4Z@y7>;RH?f1I;g',
+LR+'3?]Itw[ak&u:F?4BE
+[F)z^Mi23D?yE78[s77&A
+^&>nFpGi->?IMU,$=#Kq\
+.dc,+ggRdx1H#+G@a.{s+
+|e?Af!vrMgWGb~t!*7]1F
+TP~\{egajDxISEf;QCkpD
+veKTfjvxHVN?Fc@.JIG.Z
 ```
 
 
 
 #### Docs
-Python3 random module documentation.
-https://docs.python.org/3/library/random.html
+Documentation about Python 3 module "secrets":
+https://docs.python.org/3/library/secrets.html#module-secrets
