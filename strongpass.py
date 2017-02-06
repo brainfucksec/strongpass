@@ -76,7 +76,7 @@ def main():
     if args.version:
         print_version()
     
-    """ generate password/s
+    """ generate password/s with 'secrets'
     charset are defined with variables
     characters excluded: l0Oo`ìèéòçà°
     """
