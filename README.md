@@ -1,11 +1,11 @@
-### Strongpass v3.3.0
+### Strongpass v3.4.0
 
-#### Generate random passwords 
+#### Generate strong random passwords 
 
-#### Program Usage
+#### Program Usage:
 
 ```
-usage: strongpass.py [-h] [-l LENGHT] [-n NUMBER] [-v]
+usage: strongpass [-h] [-l LENGHT] [-n NUMBER] [-a {1,0}] [-v]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -13,28 +13,28 @@ optional arguments:
                         Lenght of password
   -n NUMBER, --number NUMBER
                         Number of password to generate
+  -a {1,0}, --algorithm {1,0}
+                        1 - random password, 0 - pronounceable password
   -v, --version         display program version and exit
 
 
 Examples:
 
-Generate 10 password of 21 characters lenght:
+Generate 10 random passwords of 21 characters lenght:
 
-./strongpass.py -l 21 -n 10 
-5!MxMAK[vC8I6D{Btge.5
-<:_EPv>^83S6i6ICuGbn%
-mhmI4Z@y7>;RH?f1I;g',
-LR+'3?]Itw[ak&u:F?4BE
-[F)z^Mi23D?yE78[s77&A
-^&>nFpGi->?IMU,$=#Kq\
-.dc,+ggRdx1H#+G@a.{s+
-|e?Af!vrMgWGb~t!*7]1F
-TP~\{egajDxISEf;QCkpD
-veKTfjvxHVN?Fc@.JIG.Z
+python strongpass.py -n 10 -a 1 -l 21
+{6r|H8C,9=F!*px|BEA[Q
+Bf(C^js=ILXjm-U5fy]W_
+LHewrXAdCJZ$Q!n+9/&LG
+v%Vt-^c!S})2~4rAY\9g,
+ARnn&7f^|2:xJQTwgtRxh
+N+f%vI}ku29N&fRiyu8.%
+_)2e2&,@V+:[$Ds++2?fM
+Wg:N\hajTcBm=ye7>A;\c
 ```
 
 
 
-#### Docs
+#### Docs:
 Documentation about Python 3 module "secrets":
 https://docs.python.org/3/library/secrets.html#module-secrets

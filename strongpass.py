@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 # Program: strongpass.py
-# Version: 3.3.0
+# Version: 3.4.0
 # Description: Generate random passwords 
 # 
-# Copyright (C) 2015, 2016. 2017 Brainfuck 
+# Copyright (C) 2015-2017 Brainfuck 
 
 # GNU GENERAL PUBLIC LICENSE
 # This program is free software: you can redistribute it and/or modify
@@ -20,14 +20,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+""" For generate passwords, used new module secrets instead of random module, 
+so we have more entropy
+https://docs.python.org/3/library/secrets.html
+"""
 import sys
 import argparse
 import string
 import secrets
 
-# program name and version
+
+# program informations
 _PROGRAM = "strongpass.py"
-_VERSION = "3.3.0"
+_VERSION = "3.4.0"
 
 
 # banner
@@ -42,28 +47,31 @@ def print_version():
     print("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>")
     print("This is free software: you are free to change and redistribute it.")
     print("There is NO WARRANTY, to the extent permitted by law.")
-    exit(0)
+    sys.exit(0)
 
 
-# function for check the user input 
+# function for check the user input
 def check(input_args):
     input_args = int(input_args)
     if input_args > 254:
         raise argparse.ArgumentTypeError("please enter an integer no more bigger than 254")
-        exit(1)
+        sys.exit(1)
     else:
         return input_args
 
 
-# main
+# main function
 def main():
     parser = argparse.ArgumentParser(
     formatter_class = argparse.RawDescriptionHelpFormatter)
 
-    # type=check --> def check()
+    # type=check --> recall def check() function above
     parser.add_argument("-l", "--lenght", type=check, help="Lenght of password")
     parser.add_argument("-n", "--number", type=check, help="Number of password to generate")
-    parser.add_argument("-v", "--version", action="store_true", help="display program version and exit")
+    parser.add_argument("-a", "--algorithm", choices=['1', '0'], 
+        help="""\n1 - random password, 0 - pronunceable password""")
+    parser.add_argument("-v", "--version", action="store_true", 
+        help="display program version and exit")
 
     args = parser.parse_args()
     
@@ -71,26 +79,37 @@ def main():
     if len(sys.argv) == 1:
         banner()
         parser.print_help()
-        exit(1)
+        sys.exit(1)
 
     if args.version:
         print_version()
     
-    """ generate password/s with 'secrets'
-    charset are defined with variables
-    characters excluded: l0Oo`ìèéòçà°
+    """ Generate password/s with "secrets"
+    characters excluded: "l0Oo`ìèéòçà°" (TODO: add option to argparse for this)
     """
     if args.lenght and args.number:
         for x in range(args.number):
+            # charset parameters
             letters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
             numbers = "123456789"
-            special = "|\!$%&/()='?^~[]{}+*@#<>,;.:-_"               
-            chars = letters + numbers + special
-            password = "".join((secrets.choice(chars)) for x in range(args.lenght))
-            print(password) 
+            special = "|\!$%&/()='?^~[]{}+*@#<>,;.:-_"
+            # 1 = random passwords
+            if args.algorithm == "1":              
+                charset = letters + numbers + special
+                password = "".join((secrets.choice(charset)) for x in range(args.lenght))
+                # add more entropy: at least one lowercase, uppercase and digit characters
+                if (any(c.islower() for c in password)
+                		and any(c.isupper() for c in password)
+                		and any(c.isdigit() for c in password)):
+                	print(password)
+            # 0 = pronunceable passwords
+            elif args.algorithm == "0":
+                charset = letters
+                password = "".join((secrets.choice(charset)) for x in range(args.lenght))
+                print(password)
     else:
-        parser.error("the following arguments are required:: -l, --lenght <lenght> -n, --number <number>")
-        exit(1)
+        parser.error("the following arguments are required: -l, --lenght <lenght> -n, --number <number>")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
