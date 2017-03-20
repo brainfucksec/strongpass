@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 # Program: strongpass.py
-# Version: 3.4.0
-# Description: Generate random passwords 
+# Version: 3.4.1
+# Description: Generate strong random passwords 
 # 
 # Copyright (C) 2015-2017 Brainfuck 
 
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-""" For generate passwords, used new module secrets instead of random module, 
+""" For generate passwords, used new module 'secrets' instead of random, 
 so we have more entropy
 https://docs.python.org/3/library/secrets.html
 """
@@ -32,7 +32,7 @@ import secrets
 
 # program informations
 _PROGRAM = "strongpass.py"
-_VERSION = "3.4.0"
+_VERSION = "3.4.1"
 
 
 # banner
@@ -69,7 +69,7 @@ def main():
     parser.add_argument("-l", "--lenght", type=check, help="Lenght of password")
     parser.add_argument("-n", "--number", type=check, help="Number of password to generate")
     parser.add_argument("-a", "--algorithm", choices=['1', '0'], 
-        help="""\n1 - random password, 0 - pronunceable password""")
+        help="""\n1 - random password, 0 - pronounceable password""")
     parser.add_argument("-v", "--version", action="store_true", 
         help="display program version and exit")
 
@@ -87,7 +87,7 @@ def main():
     """ Generate password/s with "secrets"
     characters excluded: "l0Oo`ìèéòçà°" (TODO: add option to argparse for this)
     """
-    if args.lenght and args.number:
+    if args.lenght and args.number and args.algorithm:		
         for x in range(args.number):
             # charset parameters
             letters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
@@ -102,13 +102,15 @@ def main():
                 		and any(c.isupper() for c in password)
                 		and any(c.isdigit() for c in password)):
                 	print(password)
-            # 0 = pronunceable passwords
+            # 0 = pronounceable passwords
             elif args.algorithm == "0":
                 charset = letters
                 password = "".join((secrets.choice(charset)) for x in range(args.lenght))
                 print(password)
     else:
-        parser.error("the following arguments are required: -l, --lenght <lenght> -n, --number <number>")
+        parser.error("""
+The following arguments are required: 
+-l, --lenght <lenght> | -n, --number <number> | -a --algorithm {1, 0}""")
         sys.exit(1)
 
 
