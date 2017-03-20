@@ -1,4 +1,4 @@
-### Strongpass v3.4.0
+### Strongpass v3.4.1
 
 #### Generate strong random passwords 
 
