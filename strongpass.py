@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Program: strongpass.py
-# Version: 3.4.1
+# Version: 3.4.2
 # Description: Generate strong random passwords 
 # 
 # Copyright (C) 2015-2017 Brainfuck 
@@ -31,14 +31,16 @@ import secrets
 
 
 # program informations
-_PROGRAM = "strongpass.py"
-_VERSION = "3.4.1"
+__program__ = "strongpass.py"
+__version__ = "3.4.2"
+__author__ = "Brainfuck"
 
 
 # banner
 def banner():
-    print("{} {}\n".format(_PROGRAM, _VERSION))
-    print("Generate random passwords\n")
+    print("{} {}".format(__program__, __version__))
+    print("Generate strong random passwords")
+    print("Author: {}\n".format(__author__))
 
 
 # print version and exit
@@ -50,7 +52,9 @@ def print_version():
     sys.exit(0)
 
 
-# function for check the user input
+"""Function for check the user input, raise an error if user put one integer 
+greather than 254
+"""
 def check(input_args):
     input_args = int(input_args)
     if input_args > 254:
@@ -64,12 +68,13 @@ def check(input_args):
 def main():
     parser = argparse.ArgumentParser(
     formatter_class = argparse.RawDescriptionHelpFormatter)
-
     # type=check --> recall def check() function above
-    parser.add_argument("-l", "--lenght", type=check, help="Lenght of password")
-    parser.add_argument("-n", "--number", type=check, help="Number of password to generate")
+    parser.add_argument("-l", "--lenght", type=check, 
+        help="Lenght of password")
+    parser.add_argument("-n", "--number", type=check, 
+        help="Number of password to generate")
     parser.add_argument("-a", "--algorithm", choices=['1', '0'], 
-        help="""\n1 - random password, 0 - pronounceable password""")
+        help="\n1 - random password, 0 - pronounceable password")
     parser.add_argument("-v", "--version", action="store_true", 
         help="display program version and exit")
 
@@ -84,10 +89,10 @@ def main():
     if args.version:
         print_version()
     
-    """ Generate password/s with "secrets"
-    characters excluded: "l0Oo`ìèéòçà°" (TODO: add option to argparse for this)
+    """ Generate password/s with "secrets", characters excluded: "l0Oo`ìèéòçà°"
+    TODO: add option to argparse for do this
     """
-    if args.lenght and args.number and args.algorithm:		
+    if args.lenght and args.number and args.algorithm:      
         for x in range(args.number):
             # charset parameters
             letters = "abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ"
@@ -96,16 +101,18 @@ def main():
             # 1 = random passwords
             if args.algorithm == "1":              
                 charset = letters + numbers + special
-                password = "".join((secrets.choice(charset)) for x in range(args.lenght))
-                # add more entropy: at least one lowercase, uppercase and digit characters
-                if (any(c.islower() for c in password)
-                		and any(c.isupper() for c in password)
-                		and any(c.isdigit() for c in password)):
-                	print(password)
+                password = "".join((secrets.choice(charset)) 
+                    for x in range(args.lenght))
+                # add more entropy: at least one of all characters available
+                if (any((letters) for c in password)
+                        and any((numbers) for c in password)
+                        and any((special) for c in password)):
+                    print(password)
             # 0 = pronounceable passwords
             elif args.algorithm == "0":
                 charset = letters
-                password = "".join((secrets.choice(charset)) for x in range(args.lenght))
+                password = "".join((secrets.choice(charset)) 
+                    for x in range(args.lenght))
                 print(password)
     else:
         parser.error("""
