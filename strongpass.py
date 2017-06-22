@@ -19,7 +19,10 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+#
+# Yo, infoencrypt.com/safe/ESWBRRv8mePygbN2K la pass è il forum dove abbiamo "iniziato" senza il .net
+#
+#
 """ For generate passwords, used new module 'secrets' instead of random, 
 so we have more entropy
 https://docs.python.org/3/library/secrets.html
