@@ -29,7 +29,6 @@ optional arguments:
 __Generate 10 random passwords of 21 characters lenght:__
 ```bash
 ./strongpass.py -n 10 -a 1 -l 21
-```
 {6r|H8C,9=F!*px|BEA[Q
 Bf(C^js=ILXjm-U5fy]W_
 LHewrXAdCJZ$Q!n+9/&LG
@@ -38,12 +37,11 @@ ARnn&7f^|2:xJQTwgtRxh
 N+f%vI}ku29N&fRiyu8.%
 _)2e2&,@V+:[$Ds++2?fM
 Wg:N\hajTcBm=ye7>A;\c
-
+```
 
 __Generate 10 alphanumeric passwords of 15 characters lenght:__
 ```bash
 ./strongpass.py -n 10 -a 0 -l 15
-```
 XRywgJfyjLiQPGB
 WFaakuYZYvrZYVt
 yzzFBrtGYeYCcSa
