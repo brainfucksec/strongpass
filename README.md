@@ -10,16 +10,17 @@
 ##### Program Usage:
 
 ```bash
-usage: strongpass.py [-h] [-l LENGHT] [-n NUMBER] [-a {0,1,2}] [-v]
+usage: strongpass [-h] [-l LENGHT] [-n NUMBER] [-m {0,1,2}] [-v]
 
 optional arguments:
   -h, --help            show this help message and exit
   -l LENGHT, --lenght LENGHT
-                        Lenght of password
+                        Lenght of passwords
   -n NUMBER, --number NUMBER
-                        Number of password to generate
-  -a {0,1,2}, --algorithm {0,1,2}
-                        0 - only letters, 1 - random, 2 - alphanumeric
+                        Number of passwords to generate
+  -m {0,1,2}, --mode {0,1,2}
+                        Passwords generation mode: 0 only letters, 1 random, 2
+                        alphanumeric
   -v, --version         display program version and exit
 ```
 
