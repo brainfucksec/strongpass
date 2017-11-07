@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Program: strongpass.py
-# Version: 3.6.0
+# Version: 3.6.1
 # Description: Generate strong random passwords
 #
 # Copyright (C) 2015-2017 Brainfuck
@@ -23,7 +23,7 @@
 
 # program informations
 __program__ = "strongpass"
-__version__ = "3.6.0"
+__version__ = "3.6.1"
 __author__ = "Brainfuck"
 
 """ For generate passwords, used new module 'secrets' instead of random,
@@ -90,14 +90,13 @@ class Strongpass:
             parser.print_help()
             sys.exit(1)
 
-        # if one argument is missing print usage, error type and exit
-        # avoid 'required=True' flag
-        if not args.lenght and args.number and args.mode:
-            parser.print_usage()
+        # check if all required arguments are passed
+        if args.lenght and args.number and args.mode is not None:
+            return args
+        else:
             print("error: the following arguments are required: -l LENGHT, -n NUMBER, -m {0,1,2}")
+            print("Use '{} -h, --help' for more informations.".format(__program__))
             sys.exit(1)
-
-        return args
 
     def gen_password(self):
         """Generate password/s"""
