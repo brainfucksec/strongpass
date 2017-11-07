@@ -1,6 +1,6 @@
 ### strongpass
 
-#### Version: 3.5-git
+#### Version: 3.6.0
 
 #### Generate strong random passwords
 
@@ -29,7 +29,7 @@ optional arguments:
 
 __Generate 10 random passwords of 21 characters lenght:__
 ```bash
-./strongpass.py -n 10 -a 1 -l 21
+./strongpass.py -n 10 -m 1 -l 21
 {6r|H8C,9=F!*px|BEA[Q
 Bf(C^js=ILXjm-U5fy]W_
 LHewrXAdCJZ$Q!n+9/&LG
@@ -42,7 +42,7 @@ Wg:N\hajTcBm=ye7>A;\c
 
 __Generate 10 alphanumeric passwords of 15 characters lenght:__
 ```bash
-./strongpass.py -n 10 -a 0 -l 15
+./strongpass.py -n 10 -m 2 -l 15
 XRywgJfyjLiQPGB
 WFaakuYZYvrZYVt
 yzzFBrtGYeYCcSa
